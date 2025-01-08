@@ -9,6 +9,8 @@ public class EventController : MonoBehaviour, IInitializable
     {
         Instance = this;
     }
+    public event Action OnLevelProceeded;
+    public void RaiseLevelProceeded() => OnLevelProceeded?.Invoke();
 
     public event Action OnRetryLevelButtonClicked;
     public void RaiseRetryLevelButtonClicked() => OnRetryLevelButtonClicked?.Invoke();
