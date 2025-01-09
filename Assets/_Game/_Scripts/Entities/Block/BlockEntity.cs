@@ -5,10 +5,26 @@ public class BlockEntity : MonoBehaviour
 {
     private Pool _pool;
     [SerializeField] private BlockMovement blockMovement;
-
+    private GridColumn _lastInteractedGridColumn;
     public void Initialize()
     {
         blockMovement.Initialize(transform);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.TryGetComponent(out GridColumn gridColumn))
+        {
+            _lastInteractedGridColumn = gridColumn;
+            gridColumn.OnInteracted();
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.TryGetComponent(out GridColumn gridColumn))
+        {
+            gridColumn.OnDeinteracted();
+        }
     }
 
     public void Despawn()
