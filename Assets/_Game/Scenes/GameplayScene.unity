@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &392977777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3222051796114781011, guid: c2403f1b7d8853f4c9c10d058675622c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3241094969339618425}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a37a5dfbdc0705448a5828fc06fd727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1194901641 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7875761906434596613, guid: c2403f1b7d8853f4c9c10d058675622c,
@@ -268,9 +280,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8891132993261637673, guid: 07ab51fb79eb4bf4590cbd7fd064efb6,
         type: 3}
+      propertyPath: _monoInstallers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891132993261637673, guid: 07ab51fb79eb4bf4590cbd7fd064efb6,
+        type: 3}
       propertyPath: _monoInstallers.Array.data[0]
       value: 
       objectReference: {fileID: 1194901641}
+    - target: {fileID: 8891132993261637673, guid: 07ab51fb79eb4bf4590cbd7fd064efb6,
+        type: 3}
+      propertyPath: _monoInstallers.Array.data[1]
+      value: 
+      objectReference: {fileID: 392977777}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

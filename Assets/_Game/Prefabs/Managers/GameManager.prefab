@@ -35,6 +35,8 @@ Transform:
   - {fileID: 3633964368204756145}
   - {fileID: 811709654970160038}
   - {fileID: 5885801499566001854}
+  - {fileID: 1103975271739605330}
+  - {fileID: 2974333652979483821}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7875761906434596613
@@ -134,6 +136,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4315720819562253841, guid: 66943e0b54c05d64fa4b0024a6236d82,
     type: 3}
   m_PrefabInstance: {fileID: 687619655094860448}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1505230889510105577
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7658200949964176621}
+    m_Modifications:
+    - target: {fileID: 1995583014631583931, guid: 37c3ba4d811912b458394b09b94f59a7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995583014631583931, guid: 37c3ba4d811912b458394b09b94f59a7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995583014631583931, guid: 37c3ba4d811912b458394b09b94f59a7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5963305353503153946, guid: 37c3ba4d811912b458394b09b94f59a7,
+        type: 3}
+      propertyPath: m_Name
+      value: BlockController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37c3ba4d811912b458394b09b94f59a7, type: 3}
+--- !u!4 &1103975271739605330 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1995583014631583931, guid: 37c3ba4d811912b458394b09b94f59a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1505230889510105577}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2645405468261503909
 PrefabInstance:
@@ -282,6 +323,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7412851483614882374, guid: 620e4558bb4bed244bf7d2322767266c,
     type: 3}
   m_PrefabInstance: {fileID: 3995023142488663288}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6687645419051456249
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7658200949964176621}
+    m_Modifications:
+    - target: {fileID: 5836398984016102300, guid: 3a09bd576bd1ec4428f3d130a6c0ba9a,
+        type: 3}
+      propertyPath: m_Name
+      value: ZenjectPooler
+      objectReference: {fileID: 0}
+    - target: {fileID: 8469510175882056276, guid: 3a09bd576bd1ec4428f3d130a6c0ba9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8469510175882056276, guid: 3a09bd576bd1ec4428f3d130a6c0ba9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8469510175882056276, guid: 3a09bd576bd1ec4428f3d130a6c0ba9a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3a09bd576bd1ec4428f3d130a6c0ba9a, type: 3}
+--- !u!4 &2974333652979483821 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8469510175882056276, guid: 3a09bd576bd1ec4428f3d130a6c0ba9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6687645419051456249}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8418200667207767715
 PrefabInstance:
