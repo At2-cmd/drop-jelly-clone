@@ -1,30 +1,17 @@
+using DG.Tweening;
+using System;
 using UnityEngine;
 using Zenject;
 
 public class BlockEntity : MonoBehaviour
 {
-    private Pool _pool;
+    [Inject] IBlockController _blockController;
     [SerializeField] private BlockMovement blockMovement;
+    private Pool _pool;
     private GridColumn _lastInteractedGridColumn;
     public void Initialize()
     {
-        blockMovement.Initialize(transform);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.TryGetComponent(out GridColumn gridColumn))
-        {
-            _lastInteractedGridColumn = gridColumn;
-            gridColumn.OnInteracted();
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.transform.TryGetComponent(out GridColumn gridColumn))
-        {
-            gridColumn.OnDeinteracted();
-        }
+        blockMovement.Initialize(this,transform);
     }
 
     public void Despawn()
@@ -40,6 +27,22 @@ public class BlockEntity : MonoBehaviour
     private void SetPosition(Vector3 position)
     {
         transform.position = position;
+    }
+
+    public void SetLastInteractedGrid(GridColumn gridColumn)
+    {
+        _lastInteractedGridColumn = gridColumn;
+    }
+
+    public void TryMovingIntoSelectedColumn()
+    {
+        if (_lastInteractedGridColumn == null) return;
+        var emptySlot = _lastInteractedGridColumn.GetTopMostEmptySlot();
+        if (emptySlot == null) return;
+        blockMovement.enabled = false;
+        transform.DOMove(emptySlot.transform.position,.5f);
+        emptySlot.SetGridStatus(true, this);
+        _blockController.GenerateNewBlock();
     }
 
     public class Pool : MonoMemoryPool<Vector3, BlockEntity>
