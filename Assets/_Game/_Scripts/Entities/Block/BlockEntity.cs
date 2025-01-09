@@ -4,6 +4,12 @@ using Zenject;
 public class BlockEntity : MonoBehaviour
 {
     private Pool _pool;
+    [SerializeField] private BlockMovement blockMovement;
+
+    public void Initialize()
+    {
+        blockMovement.Initialize(transform);
+    }
 
     public void Despawn()
     {
@@ -26,6 +32,7 @@ public class BlockEntity : MonoBehaviour
         {
             base.OnCreated(item);
             item.SetPool(this);
+            item.Initialize();
         }
 
         protected override void OnDespawned(BlockEntity item)
