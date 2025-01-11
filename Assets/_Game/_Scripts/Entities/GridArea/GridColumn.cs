@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class GridColumn : MonoBehaviour
 {
-    [SerializeField] GameObject selectedIndicatorObject;
     [SerializeField] GridUnit[] gridUnits;
 
     public void Initialize()
@@ -14,12 +13,18 @@ public class GridColumn : MonoBehaviour
     }
     public void OnInteracted()
     {
-        selectedIndicatorObject.SetActive(true);
+        foreach (var gridUnit in gridUnits)
+        {
+            gridUnit.SetGridColor(true);
+        }
     }
 
     public void OnDeinteracted()
     {
-        selectedIndicatorObject.SetActive(false);
+        foreach (var gridUnit in gridUnits)
+        {
+            gridUnit.SetGridColor(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)

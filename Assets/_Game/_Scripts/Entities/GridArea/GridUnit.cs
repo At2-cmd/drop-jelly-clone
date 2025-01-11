@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class GridUnit : MonoBehaviour
 {
+    [SerializeField] private Color columnSelectedColor;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     private List<GridUnit> _neighbourGrids = new();
     private bool _isFilled;
     private BlockEntity _userBlockEntity;
     public bool IsFilled => _isFilled;
+    private Color _defaultColor;
     public BlockEntity UserBlockEntity => _userBlockEntity;
 
     private static readonly Vector3[] Directions =
@@ -21,6 +24,7 @@ public class GridUnit : MonoBehaviour
     public void Initialize()
     {
         FindNeighbourGrids();
+        _defaultColor = spriteRenderer.color;
     }
 
     public void FindNeighbourGrids()
@@ -45,6 +49,12 @@ public class GridUnit : MonoBehaviour
     {
         _isFilled = isFilled;
         _userBlockEntity = userBlock;
+    }
+
+    public void SetGridColor(bool isSelectedColumnGrid)
+    {
+        if (isSelectedColumnGrid) spriteRenderer.color = columnSelectedColor;
+        else spriteRenderer.color = _defaultColor;
     }
 
     private void OnDrawGizmos()
