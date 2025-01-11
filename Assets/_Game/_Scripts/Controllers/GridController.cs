@@ -8,6 +8,6 @@ public class GridController : MonoBehaviour, IInitializable, IGridAreaDataProvid
 
     public void Initialize()
     {
-
+        gridAreaEntity.Initialize();
     }
 }

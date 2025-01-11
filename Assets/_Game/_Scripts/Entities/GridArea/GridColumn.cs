@@ -5,6 +5,13 @@ public class GridColumn : MonoBehaviour
     [SerializeField] GameObject selectedIndicatorObject;
     [SerializeField] GridUnit[] gridUnits;
 
+    public void Initialize()
+    {
+        foreach (var gridUnit in gridUnits)
+        {
+            gridUnit.Initialize();
+        }
+    }
     public void OnInteracted()
     {
         selectedIndicatorObject.SetActive(true);
