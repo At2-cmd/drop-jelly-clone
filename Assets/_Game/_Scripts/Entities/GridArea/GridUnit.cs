@@ -51,21 +51,9 @@ public class GridUnit : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         float rayDistance = 1.0f;
-
-        // Draw rays in all directions
         foreach (var direction in Directions)
         {
             Gizmos.DrawLine(transform.position, transform.position + direction * rayDistance);
-        }
-
-        // Highlight neighbors with a green line
-        Gizmos.color = Color.green;
-        foreach (var neighbour in _neighbourGrids)
-        {
-            if (neighbour != null)
-            {
-                Gizmos.DrawLine(transform.position, neighbour.transform.position);
-            }
         }
     }
 }
