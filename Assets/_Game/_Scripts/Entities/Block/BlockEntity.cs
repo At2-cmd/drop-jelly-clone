@@ -13,6 +13,8 @@ public class BlockEntity : MonoBehaviour
     [SerializeField] private Transform modelTransform;
     private Pool _pool;
     private GridColumn _lastInteractedGridColumn;
+    private bool _isDropped;
+    public bool IsDropped => _isDropped;
 
     private List<Vector3> subBlockOffsets = new List<Vector3>();
 
@@ -20,10 +22,13 @@ public class BlockEntity : MonoBehaviour
     {
         blockMovement.Initialize(this, transform);
         GenerateRandomSubBlocks();
+        _blockController.AddSelfIntoBlocksList(this);
     }
 
     public void Despawn()
     {
+        _isDropped = false;
+        _blockController.RemoveSelfFromBlocksList(this);
         _pool.Despawn(this);
     }
 
@@ -45,12 +50,21 @@ public class BlockEntity : MonoBehaviour
     public void TryMovingIntoSelectedColumn()
     {
         if (_lastInteractedGridColumn == null) return;
+        _isDropped = true;
         var emptySlot = _lastInteractedGridColumn.GetTopMostEmptySlot();
         if (emptySlot == null) return;
         blockMovement.enabled = false;
-        transform.DOMove(emptySlot.transform.position, .5f);
         emptySlot.SetGridStatus(true, this);
+        transform.DOMove(emptySlot.transform.position, .5f).OnComplete(() =>
+        {
+            _blockController.CheckIfMatchOccurs();
+        });
         _blockController.GenerateNewBlock();
+    }
+
+    public void CheckIfMatchOccurs()
+    {
+        Debug.Log("Checking if match occurs");
     }
 
     private void GenerateRandomSubBlocks()
