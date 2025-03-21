@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class SubBlock : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] private MeshRenderer meshRenderer;
-
+    private SubBlockColor _color;
+    public SubBlockColor SubBlockColor => _color;
     public void SetColor(SubBlockColor color)
     {
+        _color = color;
         switch (color)
         {
             case SubBlockColor.Yellow:
